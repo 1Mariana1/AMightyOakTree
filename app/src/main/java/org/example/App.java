@@ -2,8 +2,36 @@ package org.example;
 
 public class App {
     public static void main(String[] args) {
-      System.out.println("This is where you will put the driver program! It will run the source code that you write for the lab.");
-      System.out.println("Create separate files when writing your source code. Don't put all of your source code in this file!");
-      System.out.println("You can delete these println statements and replace them with your driver program.");
+
+        Squirrel cheeks = new Squirrel("Cheeks");
+        Squirrel squeaks = new Squirrel("Squeaks");
+        Squirrel fluffy = new Squirrel("Mr. Fluffy Butt");
+        Squirrel acorn = new Squirrel("Acorn");
+        Squirrel nutmeg = new Squirrel("Nutmeg");
+
+        Node root = new Node(cheeks);
+        Node left = new Node(squeaks);
+        Node right = new Node(fluffy);
+        Node leftLeft = new Node(acorn);
+        Node rightRight = new Node(nutmeg);
+
+        root.setLeft(left);
+        root.setRight(right);
+
+        left.setLeft(leftLeft);
+        right.setRight(rightRight);
+
+        BinaryTree tree = new BinaryTree(root);
+
+        System.out.println("Tree Traversal:");
+
+        tree.traverse();
+
+        System.out.println();
+
+        System.out.println("Testing left/right retrieval:");
+
+        System.out.println(root.left().getSquirrel().getName());
+        System.out.println(root.right().getSquirrel().getName());
     }
 }
